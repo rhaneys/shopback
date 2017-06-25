@@ -1,0 +1,641 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50386F4E1EFFAB4900DEA893 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50386F4D1EFFAB4900DEA893 /* Movies.swift */; };
+		50386F521EFFE53F00DEA893 /* MoviesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50386F511EFFE53F00DEA893 /* MoviesCell.swift */; };
+		50386F541EFFEAD300DEA893 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50386F531EFFEAD300DEA893 /* MovieCell.swift */; };
+		50CB03161EFF3A400070729D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB03151EFF3A400070729D /* AppDelegate.swift */; };
+		50CB03181EFF3A400070729D /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB03171EFF3A400070729D /* MasterViewController.swift */; };
+		50CB031A1EFF3A400070729D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB03191EFF3A400070729D /* DetailViewController.swift */; };
+		50CB031D1EFF3A400070729D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CB031B1EFF3A400070729D /* Main.storyboard */; };
+		50CB031F1EFF3A400070729D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CB031E1EFF3A400070729D /* Assets.xcassets */; };
+		50CB03221EFF3A400070729D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CB03201EFF3A400070729D /* LaunchScreen.storyboard */; };
+		50CB032D1EFF3A400070729D /* shopbackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB032C1EFF3A400070729D /* shopbackTests.swift */; };
+		50CB03381EFF3A400070729D /* shopbackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB03371EFF3A400070729D /* shopbackUITests.swift */; };
+		7BCC3898AAF1212D013AA42B /* Pods_shopback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609C677243431B64F2831294 /* Pods_shopback.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50CB03291EFF3A400070729D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50CB030A1EFF3A3F0070729D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50CB03111EFF3A3F0070729D;
+			remoteInfo = shopback;
+		};
+		50CB03341EFF3A400070729D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50CB030A1EFF3A3F0070729D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50CB03111EFF3A3F0070729D;
+			remoteInfo = shopback;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		50386F4D1EFFAB4900DEA893 /* Movies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
+		50386F511EFFE53F00DEA893 /* MoviesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCell.swift; sourceTree = "<group>"; };
+		50386F531EFFEAD300DEA893 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		50CB03121EFF3A400070729D /* shopback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopback.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50CB03151EFF3A400070729D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		50CB03171EFF3A400070729D /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		50CB03191EFF3A400070729D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		50CB031C1EFF3A400070729D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		50CB031E1EFF3A400070729D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50CB03211EFF3A400070729D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		50CB03231EFF3A400070729D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50CB03281EFF3A400070729D /* shopbackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shopbackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50CB032C1EFF3A400070729D /* shopbackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopbackTests.swift; sourceTree = "<group>"; };
+		50CB032E1EFF3A400070729D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50CB03331EFF3A400070729D /* shopbackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shopbackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50CB03371EFF3A400070729D /* shopbackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopbackUITests.swift; sourceTree = "<group>"; };
+		50CB03391EFF3A400070729D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		609C677243431B64F2831294 /* Pods_shopback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8855649128F1E5067427C304 /* Pods-shopback.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopback.release.xcconfig"; path = "Pods/Target Support Files/Pods-shopback/Pods-shopback.release.xcconfig"; sourceTree = "<group>"; };
+		B223125C7DAD8116A0346F20 /* Pods-shopback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shopback/Pods-shopback.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50CB030F1EFF3A3F0070729D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BCC3898AAF1212D013AA42B /* Pods_shopback.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CB03251EFF3A400070729D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CB03301EFF3A400070729D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50CB03091EFF3A3F0070729D = {
+			isa = PBXGroup;
+			children = (
+				50CB03141EFF3A400070729D /* shopback */,
+				50CB032B1EFF3A400070729D /* shopbackTests */,
+				50CB03361EFF3A400070729D /* shopbackUITests */,
+				50CB03131EFF3A400070729D /* Products */,
+				DABDDFACD26275A9B530D0A4 /* Pods */,
+				AD6CE9D745B007BFBE2D1CFE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		50CB03131EFF3A400070729D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50CB03121EFF3A400070729D /* shopback.app */,
+				50CB03281EFF3A400070729D /* shopbackTests.xctest */,
+				50CB03331EFF3A400070729D /* shopbackUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50CB03141EFF3A400070729D /* shopback */ = {
+			isa = PBXGroup;
+			children = (
+				50CB03151EFF3A400070729D /* AppDelegate.swift */,
+				50CB03171EFF3A400070729D /* MasterViewController.swift */,
+				50CB03191EFF3A400070729D /* DetailViewController.swift */,
+				50CB031B1EFF3A400070729D /* Main.storyboard */,
+				50CB031E1EFF3A400070729D /* Assets.xcassets */,
+				50CB03201EFF3A400070729D /* LaunchScreen.storyboard */,
+				50CB03231EFF3A400070729D /* Info.plist */,
+				50386F4D1EFFAB4900DEA893 /* Movies.swift */,
+				50386F511EFFE53F00DEA893 /* MoviesCell.swift */,
+				50386F531EFFEAD300DEA893 /* MovieCell.swift */,
+			);
+			path = shopback;
+			sourceTree = "<group>";
+		};
+		50CB032B1EFF3A400070729D /* shopbackTests */ = {
+			isa = PBXGroup;
+			children = (
+				50CB032C1EFF3A400070729D /* shopbackTests.swift */,
+				50CB032E1EFF3A400070729D /* Info.plist */,
+			);
+			path = shopbackTests;
+			sourceTree = "<group>";
+		};
+		50CB03361EFF3A400070729D /* shopbackUITests */ = {
+			isa = PBXGroup;
+			children = (
+				50CB03371EFF3A400070729D /* shopbackUITests.swift */,
+				50CB03391EFF3A400070729D /* Info.plist */,
+			);
+			path = shopbackUITests;
+			sourceTree = "<group>";
+		};
+		AD6CE9D745B007BFBE2D1CFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				609C677243431B64F2831294 /* Pods_shopback.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DABDDFACD26275A9B530D0A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B223125C7DAD8116A0346F20 /* Pods-shopback.debug.xcconfig */,
+				8855649128F1E5067427C304 /* Pods-shopback.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50CB03111EFF3A3F0070729D /* shopback */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50CB033C1EFF3A400070729D /* Build configuration list for PBXNativeTarget "shopback" */;
+			buildPhases = (
+				B947861F586A5D8DA3AEC753 /* [CP] Check Pods Manifest.lock */,
+				50CB030E1EFF3A3F0070729D /* Sources */,
+				50CB030F1EFF3A3F0070729D /* Frameworks */,
+				50CB03101EFF3A3F0070729D /* Resources */,
+				8EF23CAAEB4A974935F3FE3D /* [CP] Embed Pods Frameworks */,
+				8EFC63F104C51A660EBF1969 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = shopback;
+			productName = shopback;
+			productReference = 50CB03121EFF3A400070729D /* shopback.app */;
+			productType = "com.apple.product-type.application";
+		};
+		50CB03271EFF3A400070729D /* shopbackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50CB033F1EFF3A400070729D /* Build configuration list for PBXNativeTarget "shopbackTests" */;
+			buildPhases = (
+				50CB03241EFF3A400070729D /* Sources */,
+				50CB03251EFF3A400070729D /* Frameworks */,
+				50CB03261EFF3A400070729D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50CB032A1EFF3A400070729D /* PBXTargetDependency */,
+			);
+			name = shopbackTests;
+			productName = shopbackTests;
+			productReference = 50CB03281EFF3A400070729D /* shopbackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		50CB03321EFF3A400070729D /* shopbackUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50CB03421EFF3A400070729D /* Build configuration list for PBXNativeTarget "shopbackUITests" */;
+			buildPhases = (
+				50CB032F1EFF3A400070729D /* Sources */,
+				50CB03301EFF3A400070729D /* Frameworks */,
+				50CB03311EFF3A400070729D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50CB03351EFF3A400070729D /* PBXTargetDependency */,
+			);
+			name = shopbackUITests;
+			productName = shopbackUITests;
+			productReference = 50CB03331EFF3A400070729D /* shopbackUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50CB030A1EFF3A3F0070729D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Richard Yip";
+				TargetAttributes = {
+					50CB03111EFF3A3F0070729D = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = QF26WWW3Y6;
+						ProvisioningStyle = Automatic;
+					};
+					50CB03271EFF3A400070729D = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = QF26WWW3Y6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 50CB03111EFF3A3F0070729D;
+					};
+					50CB03321EFF3A400070729D = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = QF26WWW3Y6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 50CB03111EFF3A3F0070729D;
+					};
+				};
+			};
+			buildConfigurationList = 50CB030D1EFF3A3F0070729D /* Build configuration list for PBXProject "shopback" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50CB03091EFF3A3F0070729D;
+			productRefGroup = 50CB03131EFF3A400070729D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50CB03111EFF3A3F0070729D /* shopback */,
+				50CB03271EFF3A400070729D /* shopbackTests */,
+				50CB03321EFF3A400070729D /* shopbackUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50CB03101EFF3A3F0070729D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CB03221EFF3A400070729D /* LaunchScreen.storyboard in Resources */,
+				50CB031F1EFF3A400070729D /* Assets.xcassets in Resources */,
+				50CB031D1EFF3A400070729D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CB03261EFF3A400070729D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CB03311EFF3A400070729D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8EF23CAAEB4A974935F3FE3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shopback/Pods-shopback-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8EFC63F104C51A660EBF1969 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shopback/Pods-shopback-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B947861F586A5D8DA3AEC753 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50CB030E1EFF3A3F0070729D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CB031A1EFF3A400070729D /* DetailViewController.swift in Sources */,
+				50386F521EFFE53F00DEA893 /* MoviesCell.swift in Sources */,
+				50386F541EFFEAD300DEA893 /* MovieCell.swift in Sources */,
+				50CB03181EFF3A400070729D /* MasterViewController.swift in Sources */,
+				50386F4E1EFFAB4900DEA893 /* Movies.swift in Sources */,
+				50CB03161EFF3A400070729D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CB03241EFF3A400070729D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CB032D1EFF3A400070729D /* shopbackTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CB032F1EFF3A400070729D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CB03381EFF3A400070729D /* shopbackUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50CB032A1EFF3A400070729D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50CB03111EFF3A3F0070729D /* shopback */;
+			targetProxy = 50CB03291EFF3A400070729D /* PBXContainerItemProxy */;
+		};
+		50CB03351EFF3A400070729D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50CB03111EFF3A3F0070729D /* shopback */;
+			targetProxy = 50CB03341EFF3A400070729D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		50CB031B1EFF3A400070729D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50CB031C1EFF3A400070729D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		50CB03201EFF3A400070729D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50CB03211EFF3A400070729D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		50CB033A1EFF3A400070729D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50CB033B1EFF3A400070729D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50CB033D1EFF3A400070729D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B223125C7DAD8116A0346F20 /* Pods-shopback.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QF26WWW3Y6;
+				INFOPLIST_FILE = shopback/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.kinegetics.shopback;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		50CB033E1EFF3A400070729D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8855649128F1E5067427C304 /* Pods-shopback.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QF26WWW3Y6;
+				INFOPLIST_FILE = shopback/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.kinegetics.shopback;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		50CB03401EFF3A400070729D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = QF26WWW3Y6;
+				INFOPLIST_FILE = shopbackTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.kinegetics.shopbackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shopback.app/shopback";
+			};
+			name = Debug;
+		};
+		50CB03411EFF3A400070729D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = QF26WWW3Y6;
+				INFOPLIST_FILE = shopbackTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.kinegetics.shopbackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shopback.app/shopback";
+			};
+			name = Release;
+		};
+		50CB03431EFF3A400070729D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				DEVELOPMENT_TEAM = QF26WWW3Y6;
+				INFOPLIST_FILE = shopbackUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.kinegetics.shopbackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = shopback;
+			};
+			name = Debug;
+		};
+		50CB03441EFF3A400070729D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				DEVELOPMENT_TEAM = QF26WWW3Y6;
+				INFOPLIST_FILE = shopbackUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.kinegetics.shopbackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = shopback;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50CB030D1EFF3A3F0070729D /* Build configuration list for PBXProject "shopback" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50CB033A1EFF3A400070729D /* Debug */,
+				50CB033B1EFF3A400070729D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50CB033C1EFF3A400070729D /* Build configuration list for PBXNativeTarget "shopback" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50CB033D1EFF3A400070729D /* Debug */,
+				50CB033E1EFF3A400070729D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50CB033F1EFF3A400070729D /* Build configuration list for PBXNativeTarget "shopbackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50CB03401EFF3A400070729D /* Debug */,
+				50CB03411EFF3A400070729D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50CB03421EFF3A400070729D /* Build configuration list for PBXNativeTarget "shopbackUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50CB03431EFF3A400070729D /* Debug */,
+				50CB03441EFF3A400070729D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50CB030A1EFF3A3F0070729D /* Project object */;
+}
