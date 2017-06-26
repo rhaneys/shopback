@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 import SwiftyJSON
 
 class MasterViewController: UITableViewController {
@@ -18,9 +19,10 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = 500
         
         loadFirstMovies()
         // Do any additional setup after loading the view, typically from a nib.
@@ -111,9 +113,17 @@ class MasterViewController: UITableViewController {
         let cell:MoviesCell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
 
         let movie = movies?[indexPath.row]
-        
+        var url:URL
+        let placeholderImage = UIImage(named: "NoPoster")!
+        if (movie?.posterPath == nil) {
+            cell.posterImage.image = placeholderImage
+        }
+        else  {
+            url = URL(string: "https://image.tmdb.org/t/p/w500/" + (movie?.posterPath)!)!
+            cell.posterImage.af_setImage(withURL: url, placeholderImage: placeholderImage)
+        }
         cell.title.text = movie?.title
-        
+        cell.popularity.text = movie?.popularity?.description
         return cell
     }
 
