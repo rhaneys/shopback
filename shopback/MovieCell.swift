@@ -14,6 +14,7 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var genres:UILabel!
     @IBOutlet weak var language:UILabel!
     @IBOutlet weak var duration:UILabel!
+    @IBOutlet weak var bookMoview:UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

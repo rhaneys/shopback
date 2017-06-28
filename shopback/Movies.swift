@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 /*
  Discover Movie API response 
@@ -415,7 +416,6 @@ enum MoviesFields: String {
     case Release_date = "release_date"
 }
 
-
 class MoviesWrapper {
     var movies: [Movies]?
     var page: Int?
@@ -535,17 +535,12 @@ class Movies {
 }
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
 

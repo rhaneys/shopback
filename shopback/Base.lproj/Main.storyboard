@@ -147,16 +147,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GcY-Df-efD">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GcY-Df-efD" id="NCZ-W0-Qt0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="267" id="7lO-iW-vd1">
-                                <rect key="frame" x="0.0" y="72" width="375" height="267"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="267" id="7lO-iW-vd1" customClass="MovieCell" customModule="shopback" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="267"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7lO-iW-vd1" id="o6w-fp-kSh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="266.5"/>
@@ -174,6 +166,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hs-TE-2sR">
+                                            <rect key="frame" x="18" y="80" width="339" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPA-ca-G8o">
                                             <rect key="frame" x="18" y="111" width="339" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -184,12 +182,6 @@
                                             <rect key="frame" x="140" y="211" width="80" height="30"/>
                                             <state key="normal" title="Book Movie"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hs-TE-2sR">
-                                            <rect key="frame" x="18" y="80" width="339" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="1hs-TE-2sR" firstAttribute="leading" secondItem="cPA-ca-G8o" secondAttribute="leading" id="131-eA-8KG"/>
@@ -207,6 +199,13 @@
                                         <constraint firstItem="1hs-TE-2sR" firstAttribute="top" secondItem="KAT-6h-23n" secondAttribute="bottom" constant="10" id="tvp-zU-3vZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bookMoview" destination="cfg-0G-48R" id="7MY-pe-2mA"/>
+                                    <outlet property="duration" destination="cPA-ca-G8o" id="dRP-dl-bIx"/>
+                                    <outlet property="genres" destination="KAT-6h-23n" id="wXs-fh-N83"/>
+                                    <outlet property="language" destination="1hs-TE-2sR" id="Gw9-fd-gs1"/>
+                                    <outlet property="synopsis" destination="XDB-mq-GYw" id="Bq9-tv-VZ6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -217,7 +216,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTk-J1-Hda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757.60000000000002" y="120.98950524737631"/>
+            <point key="canvasLocation" x="756" y="128"/>
         </scene>
     </scenes>
 </document>
