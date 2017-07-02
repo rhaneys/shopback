@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  MoviesViewController.swift
 //  shopback
 //
 //  Created by Richard Yip on 25/6/17.
@@ -11,14 +11,27 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 
-class MasterViewController: UITableViewController {
+protocol MovieSelectionDelegate: class  {
+    func movieSelected(movieID:String)
+}
+
+class MoviesViewController: UITableViewController {
 
     var movies : [Movies]?
     var moviesWrapper: MoviesWrapper? // holds the last wrapper that we've loaded
     var isLoadingMovies = false
-    var detailViewController: DetailViewController? = nil
+//    var detailViewController: DetailViewController? = nil
     var objects = [Any]()
+    weak var delegate:MovieSelectionDelegate?
 
+    
+    static func viewController() -> MoviesViewController {
+        let viewController = UIStoryboard(name: "Movies_storyboard", bundle: nil).instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController
+        return viewController
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,10 +43,10 @@ class MasterViewController: UITableViewController {
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         navigationItem.rightBarButtonItem = addButton
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
+//        if let split = splitViewController {
+//            let controllers = split.viewControllers
+//            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+//        }
         
     }
     
@@ -125,6 +138,20 @@ class MasterViewController: UITableViewController {
         cell.title.text = movie?.title
         cell.popularity.text = movie?.popularity?.description
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let movie = movies?[indexPath.row];
+        let movieID = movie?.id
+        self.delegate?.movieSelected(movieID: movieID!)
+        
+//        let detail = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+//        detail?.movieID = movieID
+//        self.navigationController?.pushViewController(detail!, animated: true)
+
+        
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

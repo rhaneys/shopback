@@ -425,7 +425,7 @@ class MoviesWrapper {
 
 class Movies {
     var voteCount: Int?
-    var id: Int?
+    var id: String?
     var isVideo: Bool?
     var voteAverage: Float?
     var title: String?
@@ -447,7 +447,7 @@ class Movies {
         self.backdropPath = json[MoviesFields.BackdropPath.rawValue] as? String
         
         self.voteCount = json[MoviesFields.VoteCount.rawValue] as? Int
-        self.id = json[MoviesFields.ID.rawValue] as? Int
+        self.id = json[MoviesFields.ID.rawValue] as? String
         self.isVideo = json[MoviesFields.Video.rawValue] as? Bool
         self.voteAverage = json[MoviesFields.VoteAverage.rawValue] as? Float
         self.originalLanguage = json[MoviesFields.OriginalLanguage.rawValue] as? String

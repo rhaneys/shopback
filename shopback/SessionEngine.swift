@@ -11,10 +11,12 @@ import Alamofire
 import SwiftyJSON
 
 class SessionEngine {
+    
+    static let sharedInstance : SessionEngine = {
+        let instance = SessionEngine()
+        return instance
+    }()
 
-    required init() {
-        
-    }
 
     func getMovie(movieID: String, _ completionHandler: @escaping (Movie?) -> Void) {
         
