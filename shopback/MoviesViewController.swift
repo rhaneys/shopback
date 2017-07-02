@@ -50,6 +50,19 @@ class MoviesViewController: UITableViewController {
         
     }
     
+    // MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMovie" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let movie = movies?[indexPath.row]
+                let controller = (segue.destination as! UINavigationController).topViewController as! MovieViewController
+                controller.movieID = movie!.id
+                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
+    }
+    
     // MARK: Loading Movies from API
     func loadFirstMovies() {
         isLoadingMovies = true
@@ -94,20 +107,7 @@ class MoviesViewController: UITableViewController {
 //        tableView.insertRows(at: [indexPath], with: .automatic)
     }
 
-    // MARK: - Segues
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showDetail" {
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                let object = objects[indexPath.row] as! NSDate
-//                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-//                controller.detailItem = object
-//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//                controller.navigationItem.leftItemsSupplementBackButton = true
-//            }
-//        }
-    }
-
+    
     // MARK: - Table View
 
     override func numberOfSections(in tableView: UITableView) -> Int {

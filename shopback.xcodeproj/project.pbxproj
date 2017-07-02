@@ -18,7 +18,6 @@
 		50CB031A1EFF3A400070729D /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB03191EFF3A400070729D /* MovieViewController.swift */; };
 		50CB031D1EFF3A400070729D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CB031B1EFF3A400070729D /* Main.storyboard */; };
 		50CB031F1EFF3A400070729D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CB031E1EFF3A400070729D /* Assets.xcassets */; };
-		50CB03221EFF3A400070729D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CB03201EFF3A400070729D /* LaunchScreen.storyboard */; };
 		50CB032D1EFF3A400070729D /* shopbackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB032C1EFF3A400070729D /* shopbackTests.swift */; };
 		50CB03381EFF3A400070729D /* shopbackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB03371EFF3A400070729D /* shopbackUITests.swift */; };
 		7BCC3898AAF1212D013AA42B /* Pods_shopback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609C677243431B64F2831294 /* Pods_shopback.framework */; };
@@ -54,7 +53,6 @@
 		50CB03191EFF3A400070729D /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		50CB031C1EFF3A400070729D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50CB031E1EFF3A400070729D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		50CB03211EFF3A400070729D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50CB03231EFF3A400070729D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50CB03281EFF3A400070729D /* shopbackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shopbackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CB032C1EFF3A400070729D /* shopbackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopbackTests.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				50CB031B1EFF3A400070729D /* Main.storyboard */,
 				5033AFEE1F0889C400681355 /* Movies.storyboard */,
 				50CB031E1EFF3A400070729D /* Assets.xcassets */,
-				50CB03201EFF3A400070729D /* LaunchScreen.storyboard */,
 				50CB03231EFF3A400070729D /* Info.plist */,
 				50386F4D1EFFAB4900DEA893 /* Movies.swift */,
 				50386F511EFFE53F00DEA893 /* MoviesCell.swift */,
@@ -283,7 +280,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50CB03221EFF3A400070729D /* LaunchScreen.storyboard in Resources */,
 				50CB031F1EFF3A400070729D /* Assets.xcassets in Resources */,
 				50CB031D1EFF3A400070729D /* Main.storyboard in Resources */,
 				5033AFEF1F0889C400681355 /* Movies.storyboard in Resources */,
@@ -408,14 +404,6 @@
 				50CB031C1EFF3A400070729D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		50CB03201EFF3A400070729D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				50CB03211EFF3A400070729D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
