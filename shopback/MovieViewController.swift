@@ -26,11 +26,13 @@ class MovieViewController: UIViewController {
     
     func loadMovie() {
         
-//        let session = SessionEngine()
         if let theMovieID = movieID {
             SessionEngine.sharedInstance.getMovie(movieID:theMovieID) { result in
-            self.movie = result
-                print(self.movie)
+                self.movie = result
+                self.synopsis.text = self.movie?.overview
+                self.genres.text = self.movie?.genres?.description
+                self.language.text = self.movie?.spokenLanguages?.description
+                self.duration.text = self.movie?.runtime?.description
             }
         }
     }

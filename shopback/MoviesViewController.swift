@@ -17,7 +17,8 @@ class MoviesViewController: UITableViewController {
     var moviesList : MoviesList?
     var isLoadingMovies = false
     var pagesToLoaded = Set<Int>()
-
+    @IBOutlet weak var refresh: UIRefreshControl!
+    
     static func viewController() -> MoviesViewController {
         let viewController = UIStoryboard(name: "Movies_storyboard", bundle: nil).instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController
         return viewController
@@ -26,10 +27,6 @@ class MoviesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshMovies(_:)))
-        navigationItem.rightBarButtonItem = refreshButton
-        
         tableView.rowHeight = 500
         pagesToLoaded.insert(1)
         loadMovies()
@@ -49,7 +46,7 @@ class MoviesViewController: UITableViewController {
         }
     }
     
-    
+    //  load page number of movies
     func loadMovies() {
         isLoadingMovies = true
         let pageToLoad = pagesToLoaded.max()
@@ -72,17 +69,25 @@ class MoviesViewController: UITableViewController {
         }
     }
     
+    //  add next page of movies and reload
     @objc
-    func refreshMovies(_ sender: Any) {
+    @IBAction
+    func  refreshMovies(_ sender: Any) {
         
-        if (!isLoadingMovies) {
-            moviesList = nil
-            movies?.removeAll()
-            pagesToLoaded.removeAll()
-            pagesToLoaded.insert(1)
-            loadMovies()
+        if !isLoadingMovies{
+            isLoadingMovies = true
+            let pageToLoad = pagesToLoaded.max()! + 1
+            
+            guard pageToLoad < (moviesList?.totalPages!)! else {
+                print("no more pages to refresh")
+                return
+            }
+            pagesToLoaded.insert(pageToLoad)
+            self.loadMovies()
+            self.refreshControl?.endRefreshing()
         }
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
