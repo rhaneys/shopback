@@ -11,18 +11,12 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 
-protocol MovieSelectionDelegate: class  {
-    func movieSelected(movieID:String)
-}
-
 class MoviesViewController: UITableViewController {
 
     var movies : [Movies]?
     var moviesList : MoviesList?
     var isLoadingMovies = false
-    var objects = [Any]()
     var pagesToLoaded = Set<Int>()
-    weak var delegate:MovieSelectionDelegate?
 
     static func viewController() -> MoviesViewController {
         let viewController = UIStoryboard(name: "Movies_storyboard", bundle: nil).instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController
@@ -32,6 +26,10 @@ class MoviesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshMovies(_:)))
+        navigationItem.rightBarButtonItem = refreshButton
+        
         tableView.rowHeight = 500
         pagesToLoaded.insert(1)
         loadMovies()
@@ -74,6 +72,18 @@ class MoviesViewController: UITableViewController {
         }
     }
     
+    @objc
+    func refreshMovies(_ sender: Any) {
+        
+        if (!isLoadingMovies) {
+            moviesList = nil
+            movies?.removeAll()
+            pagesToLoaded.removeAll()
+            pagesToLoaded.insert(1)
+            loadMovies()
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
@@ -104,6 +114,11 @@ class MoviesViewController: UITableViewController {
             if !isLoadingMovies{
                 isLoadingMovies = true
                 let pageToLoad = pagesToLoaded.max()! + 1
+                
+                guard pageToLoad < (moviesList?.totalPages!)! else {
+                    print("no more pages to load")
+                    return
+                }
                 pagesToLoaded.insert(pageToLoad)
                 self.loadMovies()
             }
