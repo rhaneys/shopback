@@ -21,7 +21,7 @@ class MoviesViewController: UITableViewController {
     var moviesList : MoviesList?
     var isLoadingMovies = false
     var objects = [Any]()
-    var pagesLoaded = Set<Int>()
+    var pagesToLoaded = Set<Int>()
     weak var delegate:MovieSelectionDelegate?
 
     static func viewController() -> MoviesViewController {
@@ -32,20 +32,9 @@ class MoviesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.rowHeight = 500
+        pagesToLoaded.insert(1)
         loadMovies()
-//        loadFirstMovies()
-        // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.leftBarButtonItem = editButtonItem
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton
-//        if let split = splitViewController {
-//            let controllers = split.viewControllers
-//            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-//        }
-        
     }
     
     // MARK: - Segue
@@ -62,43 +51,18 @@ class MoviesViewController: UITableViewController {
         }
     }
     
-//    // MARK: Loading Movies from API
-//    func loadFirstMovies() {
-//        isLoadingMovies = true
-//        let page = "1"
-//        Movies.getMovies(page:page) { result in
-//            if let error = result.error {
-//                // TODO: improved error handling
-//                self.isLoadingMovies = false
-//                let alert = UIAlertController(title: "Error", message: "Could not load first movie :( \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
-//                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
-//                self.present(alert, animated: true, completion: nil)
-//            }
-//            let moviesWrapper = result.value
-//            self.addMoviesFromWrapper(moviesWrapper)
-//            self.isLoadingMovies = false
-//            self.tableView.reloadData()
-//        }
-//    }
-
     
     func loadMovies() {
         isLoadingMovies = true
-        SessionEngine.sharedInstance.getMovies(page: 1) { result in
+        let pageToLoad = pagesToLoaded.max()
+
+        SessionEngine.sharedInstance.getMovies(page: pageToLoad!) { result in
             let moviesList = result
             self.addMoviesFromList(moviesList!)
             self.isLoadingMovies = false
             self.tableView.reloadData()
             
-            
-//            for movie in result! {
-//                print("title \(String(describing: movie.title))")
-//                print("popularity \(movie.popularity)")
-//                print("posterPath \(movie.posterPath)")
-//                print("backdropPath \(movie.backdropPath)")
-//            }
         }
-        
     }
 
     func addMoviesFromList(_ list:MoviesList) {
@@ -110,18 +74,6 @@ class MoviesViewController: UITableViewController {
         }
     }
     
-    
-//    func addMoviesFromWrapper(_ wrapper: MoviesWrapper?) {
-////        self.moviesWrapper = wrapper
-////        if self.movies == nil {
-////            self.movies = self.moviesWrapper?.movies
-////        } else if self.moviesWrapper != nil && self.moviesWrapper!.movies != nil {
-////            self.movies = self.movies! + self.moviesWrapper!.movies!
-////        }
-////        
-////        print("movies are \(self.movies)")
-////    }
-    
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
@@ -132,12 +84,31 @@ class MoviesViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func insertNewObject(_ sender: Any) {
-//        objects.insert(NSDate(), at: 0)
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        tableView.insertRows(at: [indexPath], with: .automatic)
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        print("scrollViewWillBeginDragging")
+        isLoadingMovies = false
     }
-
+    
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndDecelerating")
+    }
+    
+    //Pagination
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        print("scrollViewDidEndDragging")
+        if ((tableView.contentOffset.y + tableView.frame.size.height) >= tableView.contentSize.height)
+        {
+            print("end of table")
+            if !isLoadingMovies{
+                isLoadingMovies = true
+                let pageToLoad = pagesToLoaded.max()! + 1
+                pagesToLoaded.insert(pageToLoad)
+                self.loadMovies()
+            }
+        }
+    }
     
     // MARK: - Table View
 
@@ -172,32 +143,10 @@ class MoviesViewController: UITableViewController {
     }
     
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let movie = movies?[indexPath.row];
-        let movieID = String(describing: movie?.id)
-        self.delegate?.movieSelected(movieID: movieID)
-        
-//        let detail = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
-//        detail?.movieID = movieID
-//        self.navigationController?.pushViewController(detail!, animated: true)
-
-        
-    }
-
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            objects.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-//        }
-//    }
 
 }
 
