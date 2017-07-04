@@ -16,7 +16,6 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var duration:UILabel!
     @IBOutlet weak var bookMoview:UIButton!
     
-    var movieID: String?
     var movie: Movie?
 
     static func viewController() -> MovieViewController {
@@ -28,8 +27,11 @@ class MovieViewController: UIViewController {
     func loadMovie() {
         
 //        let session = SessionEngine()
-        SessionEngine.sharedInstance.getMovie(movieID:"") { result in
+        if let theMovieID = movieID {
+            SessionEngine.sharedInstance.getMovie(movieID:theMovieID) { result in
             self.movie = result
+                print(self.movie)
+            }
         }
     }
 
@@ -45,7 +47,7 @@ class MovieViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    var detailItem: NSDate? {
+    var movieID: Int? {
         didSet {
             // Update the view.
             loadMovie()

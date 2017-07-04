@@ -18,17 +18,15 @@ protocol MovieSelectionDelegate: class  {
 class MoviesViewController: UITableViewController {
 
     var movies : [Movies]?
-    var moviesWrapper: MoviesWrapper? // holds the last wrapper that we've loaded
+    var moviesList : MoviesList?
     var isLoadingMovies = false
-//    var detailViewController: DetailViewController? = nil
     var objects = [Any]()
+    var pagesLoaded = Set<Int>()
     weak var delegate:MovieSelectionDelegate?
 
-    
     static func viewController() -> MoviesViewController {
         let viewController = UIStoryboard(name: "Movies_storyboard", bundle: nil).instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController
         return viewController
-        
     }
     
     
@@ -36,8 +34,8 @@ class MoviesViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = 500
-        
-        loadFirstMovies()
+        loadMovies()
+//        loadFirstMovies()
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
 
@@ -56,40 +54,73 @@ class MoviesViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let movie = movies?[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! MovieViewController
-                controller.movieID = movie!.id
+                controller.movieID = movie?.id
+                controller.title = movie?.title
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }
     
-    // MARK: Loading Movies from API
-    func loadFirstMovies() {
+//    // MARK: Loading Movies from API
+//    func loadFirstMovies() {
+//        isLoadingMovies = true
+//        let page = "1"
+//        Movies.getMovies(page:page) { result in
+//            if let error = result.error {
+//                // TODO: improved error handling
+//                self.isLoadingMovies = false
+//                let alert = UIAlertController(title: "Error", message: "Could not load first movie :( \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//            let moviesWrapper = result.value
+//            self.addMoviesFromWrapper(moviesWrapper)
+//            self.isLoadingMovies = false
+//            self.tableView.reloadData()
+//        }
+//    }
+
+    
+    func loadMovies() {
         isLoadingMovies = true
-        let page = "1"
-        Movies.getMovies(page:page) { result in
-            if let error = result.error {
-                // TODO: improved error handling
-                self.isLoadingMovies = false
-                let alert = UIAlertController(title: "Error", message: "Could not load first movie :( \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-            let moviesWrapper = result.value
-            self.addMoviesFromWrapper(moviesWrapper)
+        SessionEngine.sharedInstance.getMovies(page: 1) { result in
+            let moviesList = result
+            self.addMoviesFromList(moviesList!)
             self.isLoadingMovies = false
             self.tableView.reloadData()
+            
+            
+//            for movie in result! {
+//                print("title \(String(describing: movie.title))")
+//                print("popularity \(movie.popularity)")
+//                print("posterPath \(movie.posterPath)")
+//                print("backdropPath \(movie.backdropPath)")
+//            }
         }
+        
     }
 
-    func addMoviesFromWrapper(_ wrapper: MoviesWrapper?) {
-        self.moviesWrapper = wrapper
+    func addMoviesFromList(_ list:MoviesList) {
+        self.moviesList = list
         if self.movies == nil {
-            self.movies = self.moviesWrapper?.movies
-        } else if self.moviesWrapper != nil && self.moviesWrapper!.movies != nil {
-            self.movies = self.movies! + self.moviesWrapper!.movies!
+            self.movies = self.moviesList?.movies
+        } else if self.moviesList != nil && self.moviesList!.movies != nil {
+            self.movies = self.movies! + self.moviesList!.movies
         }
     }
+    
+    
+//    func addMoviesFromWrapper(_ wrapper: MoviesWrapper?) {
+////        self.moviesWrapper = wrapper
+////        if self.movies == nil {
+////            self.movies = self.moviesWrapper?.movies
+////        } else if self.moviesWrapper != nil && self.moviesWrapper!.movies != nil {
+////            self.movies = self.movies! + self.moviesWrapper!.movies!
+////        }
+////        
+////        print("movies are \(self.movies)")
+////    }
     
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
@@ -144,8 +175,8 @@ class MoviesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let movie = movies?[indexPath.row];
-        let movieID = movie?.id
-        self.delegate?.movieSelected(movieID: movieID!)
+        let movieID = String(describing: movie?.id)
+        self.delegate?.movieSelected(movieID: movieID)
         
 //        let detail = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
 //        detail?.movieID = movieID

@@ -416,16 +416,31 @@ enum MoviesFields: String {
     case Release_date = "release_date"
 }
 
-class MoviesWrapper {
-    var movies: [Movies]?
+class MoviesList {
+    var movies = [Movies]()
     var page: Int?
-    var totalRresults: Int?
-    var totalRpages: Int?
+    var totalResults: Int?
+    var totalPages: Int?
+    
+    required init(json: JSON) {
+        
+        self.totalResults = json["total_results"].int
+        self.page = json["page"].int
+        self.totalPages = json["total_pages"].int
+        
+        if let results = json["results"].array {
+            for result in results {
+                let movie = Movies(json: result)
+                movies.append(movie)
+            }
+        }
+        
+    }
 }
 
 class Movies {
     var voteCount: Int?
-    var id: String?
+    var id: Int?
     var isVideo: Bool?
     var voteAverage: Float?
     var title: String?
@@ -439,15 +454,25 @@ class Movies {
     var overview: String?
     var releaseDate: Date?
     
+    required init(json: JSON) {
+        self.title = json["title"].string
+        self.popularity = json["popularity"].float
+        self.posterPath = json["poster_path"].string
+        self.backdropPath = json["backdrop_path"].string
+
+        
+    }
+    
     required init(json: [String: Any]) {
         
         self.title = json[MoviesFields.Title.rawValue] as? String
         self.popularity = json[MoviesFields.Popularity.rawValue] as? Float
         self.posterPath = json[MoviesFields.PosterPath.rawValue] as? String
         self.backdropPath = json[MoviesFields.BackdropPath.rawValue] as? String
+        self.id = json[MoviesFields.ID.rawValue] as? Int
         
         self.voteCount = json[MoviesFields.VoteCount.rawValue] as? Int
-        self.id = json[MoviesFields.ID.rawValue] as? String
+
         self.isVideo = json[MoviesFields.Video.rawValue] as? Bool
         self.voteAverage = json[MoviesFields.VoteAverage.rawValue] as? Float
         self.originalLanguage = json[MoviesFields.OriginalLanguage.rawValue] as? String
@@ -457,81 +482,6 @@ class Movies {
         self.overview = json[MoviesFields.Overview.rawValue] as? String
         self.releaseDate = json[MoviesFields.Release_date.rawValue] as? Date
     }
-    
-    //  MARK: EndPoint
-    func endpointForMovies(page:String) -> String {
-        return "http://api.themoviedb.org/3/discover/movieapi_key=328c283cd27bd1877d9080ccb1604c91&primary_release_date.lte=2016-12-31&sort_by=release_date.desc&page=" + page
-    }
-    
-    
-    func endpointForTheMovie(id:String) -> String {
-        
-        return "http://api.themoviedb.org/3/movie/" + id + "?api_key=328c283cd27bd1877d9080ccb1604c91"
-        
-    }
-    
-    
-    //  Get / Movies
-    fileprivate class func getMoviesAtPath(_ path: String, completionHandler: @escaping (Result<MoviesWrapper>) -> Void) {
-        // make sure it's HTTPS because sometimes the API gives us HTTP URLs
-        guard var urlComponents = URLComponents(string: path) else {
-            let error = BackendError.urlError(reason: "Tried to load an invalid URL")
-            completionHandler(.failure(error))
-            return
-        }
-        urlComponents.scheme = "https"
-        guard let url = try? urlComponents.asURL() else {
-            let error = BackendError.urlError(reason: "Tried to load an invalid URL")
-            completionHandler(.failure(error))
-            return
-        }
-        let _ = Alamofire.request(url)
-            .responseJSON { response in
-                if let error = response.result.error {
-                    completionHandler(.failure(error))
-                    return
-                }
-                let moviesWrapperResult = moviesArrayFromResponse(response)
-                completionHandler(moviesWrapperResult)
-        }
-        
-        func moviesArrayFromResponse(_ response: DataResponse<Any>) -> Result<MoviesWrapper> {
-            guard response.result.error == nil else {
-                // got an error in getting the data, need to handle it
-                print(response.result.error!)
-                return .failure(response.result.error!)
-            }
-            
-            // make sure we got JSON and it's a dictionary
-            guard let json = response.result.value as? [String: Any] else {
-                print("didn't get species object as JSON from API")
-                return .failure(BackendError.objectSerialization(reason:
-                    "Did not get JSON dictionary in response"))
-            }
-            
-            let wrapper:MoviesWrapper = MoviesWrapper()
-            wrapper.page = json["page"] as? Int
-            
-            var allMovies: [Movies] = []
-            if let results = json["results"] as? [[String: Any]] {
-                for jsonMovies in results {
-                    let movies = Movies(json: jsonMovies)
-                    allMovies.append(movies)
-                }
-            }
-            wrapper.movies = allMovies
-            return .success(wrapper)
-        }
-        
-    }
-    
-    class func getMovies(page: String, _ completionHandler: @escaping (Result<MoviesWrapper>) -> Void) {
-        
-        let path = "http://api.themoviedb.org/3/discover/movie?api_key=328c283cd27bd1877d9080ccb1604c91&primary_release_date.lte=2016-12-31&sort_by=release_date.desc&page=" + page
-        print(path)
-        getMoviesAtPath(path, completionHandler: completionHandler)
-    }
-    
 }
 
 

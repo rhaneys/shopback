@@ -189,10 +189,10 @@
                     <navigationItem key="navigationItem" id="Y1h-KU-jNF"/>
                     <connections>
                         <outlet property="bookMoview" destination="phF-YN-aDi" id="06h-c2-Mjz"/>
-                        <outlet property="duration" destination="GJK-vN-2Ha" id="aVe-Qx-gPr"/>
-                        <outlet property="genres" destination="QcW-Eq-wow" id="sUp-4R-NSb"/>
-                        <outlet property="language" destination="D2J-09-xOF" id="TWG-Hl-shw"/>
-                        <outlet property="synopsis" destination="zkT-dn-IeJ" id="20e-1K-6Ma"/>
+                        <outlet property="duration" destination="GJK-vN-2Ha" id="4H5-zl-l1h"/>
+                        <outlet property="genres" destination="D2J-09-xOF" id="AjT-wV-59M"/>
+                        <outlet property="language" destination="D2J-09-xOF" id="oES-AR-wlE"/>
+                        <outlet property="synopsis" destination="zkT-dn-IeJ" id="msV-qI-CQV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWG-qU-f5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
