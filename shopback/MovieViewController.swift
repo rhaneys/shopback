@@ -19,7 +19,7 @@ class MovieViewController: UIViewController {
     var movie: Movie?
 
     static func viewController() -> MovieViewController {
-        let viewController = UIStoryboard(name: "Movies_storyboard", bundle: nil).instantiateViewController(withIdentifier: "MovieViewController") as! MovieViewController
+        let viewController = UIStoryboard(name: "Main_storyboard", bundle: nil).instantiateViewController(withIdentifier: "MovieViewController") as! MovieViewController
         return viewController
         
     }
@@ -29,10 +29,28 @@ class MovieViewController: UIViewController {
         if let theMovieID = movieID {
             SessionEngine.sharedInstance.getMovie(movieID:theMovieID) { result in
                 self.movie = result
-                self.synopsis.text = self.movie?.overview
-                self.genres.text = self.movie?.genres?.description
-                self.language.text = self.movie?.spokenLanguages?.description
-                self.duration.text = self.movie?.runtime?.description
+                
+                let attrs = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 17)]
+            
+                let synopsis = NSMutableAttributedString(string:"Synopsis:\n\n", attributes:attrs)
+                let synopsisString = NSMutableAttributedString(string:(self.movie?.overview)!)
+                synopsis.append(synopsisString)
+                self.synopsis.attributedText = synopsis
+                
+                let genres = NSMutableAttributedString(string:"Genres: ", attributes:attrs)
+                let genresString = NSMutableAttributedString(string:(self.movie?.genres?.description)!)
+                genres.append(genresString)
+                self.genres.attributedText = genres
+                
+                let language = NSMutableAttributedString(string:"Language: ", attributes:attrs)
+                let languageString = NSMutableAttributedString(string:(self.movie?.spokenLanguages?.description)!)
+                language.append(languageString)
+                self.language.attributedText = language
+                
+                let duration = NSMutableAttributedString(string:"Duration: ", attributes:attrs)
+                let durationString = NSMutableAttributedString(string: String(describing: self.movie?.runtime))
+                duration.append(durationString)
+                self.duration.attributedText = duration
             }
         }
     }

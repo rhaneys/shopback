@@ -459,8 +459,8 @@ class Movies {
         self.popularity = json["popularity"].float
         self.posterPath = json["poster_path"].string
         self.backdropPath = json["backdrop_path"].string
+        self.id = json["id"].int
 
-        
     }
     
     required init(json: [String: Any]) {
