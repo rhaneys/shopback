@@ -30,25 +30,46 @@ class MovieViewController: UIViewController {
             SessionEngine.sharedInstance.getMovie(movieID:theMovieID) { result in
                 self.movie = result
                 
+  
                 let attrs = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 17)]
-            
-                let synopsis = NSMutableAttributedString(string:"Synopsis:\n\n", attributes:attrs)
-                let synopsisString = NSMutableAttributedString(string:(self.movie?.overview)!)
-                synopsis.append(synopsisString)
-                self.synopsis.attributedText = synopsis
+                
+                //  synopsis
+                self.synopsis.text = "Synopsis:\n\n" + (self.movie?.overview)!
+                
+                //  genres
+                var genresArray = [String]()
+                var array = self.movie?.genres
+                for dict:NSDictionary in array! {
+                    let name = dict["name"]
+                    genresArray.append(name as! String)
+
+                }
                 
                 let genres = NSMutableAttributedString(string:"Genres: ", attributes:attrs)
-                let genresString = NSMutableAttributedString(string:(self.movie?.genres?.description)!)
+                let genresString = NSMutableAttributedString(string:(genresArray.joined(separator: ", ")))
                 genres.append(genresString)
                 self.genres.attributedText = genres
                 
+                //  languages
+                var languageArray = [String]()
+                array = self.movie?.spokenLanguages
+                for dict:NSDictionary in array! {
+                    let name = dict["name"]
+                    languageArray.append(name as! String)
+                    
+                }
+            
                 let language = NSMutableAttributedString(string:"Language: ", attributes:attrs)
-                let languageString = NSMutableAttributedString(string:(self.movie?.spokenLanguages?.description)!)
+                let languageString = NSMutableAttributedString(string:languageArray.joined(separator: ", "))
                 language.append(languageString)
                 self.language.attributedText = language
                 
+                //  duration
                 let duration = NSMutableAttributedString(string:"Duration: ", attributes:attrs)
-                let durationString = NSMutableAttributedString(string: String(describing: self.movie?.runtime))
+                
+                let runtime:Int = (self.movie?.runtime!)!
+                
+                let durationString = NSMutableAttributedString(string: String(describing: runtime))
                 duration.append(durationString)
                 self.duration.attributedText = duration
             }
