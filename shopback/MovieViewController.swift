@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class MovieViewController: UIViewController {
     
@@ -72,15 +73,26 @@ class MovieViewController: UIViewController {
                 let durationString = NSMutableAttributedString(string: String(describing: runtime))
                 duration.append(durationString)
                 self.duration.attributedText = duration
+                
+                
             }
         }
     }
 
+    @IBAction func bookMovie(_ sender: UIButton) {
+        if let url = URL(string: "http://www.cathaycineplexes.com.sg/") {
+            let vc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
+            present(vc, animated: true)
+        }
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.bookMoview.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
         loadMovie()
+        self.bookMoview.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {

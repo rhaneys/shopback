@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "shopback/MovieViewController.swift"
-            timestampString = "521030791.318229"
+            timestampString = "521086345.744487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "loadMovie()"
             landmarkType = "7">
          </BreakpointContent>

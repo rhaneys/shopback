@@ -100,13 +100,11 @@ class MoviesViewController: UITableViewController {
     }
 
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        print("scrollViewWillBeginDragging")
         isLoadingMovies = false
     }
     
     
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("scrollViewDidEndDecelerating")
     }
     
     //Pagination
